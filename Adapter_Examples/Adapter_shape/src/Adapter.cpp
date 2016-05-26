@@ -23,8 +23,10 @@ void printShapeDetails(Shape* textShape)
 
 	textShape->BoundingBox(bottomLeft,topRight);
 
-	cout << textShape->getName() <<" BoundingBox bottomLeft coord is: ("<< bottomLeft.getX()<<","<< bottomLeft.getY() << ")." <<endl;
-	cout << textShape->getName() <<" BoundingBox bottomRight coord is: ("<< topRight.getX()<<","<< topRight.getY() << ")." <<endl;
+	cout << textShape->getName();
+	cout <<" BoundingBox bottomLeft coord is: ("<< bottomLeft.getX()<<","<< bottomLeft.getY() << ")." <<endl;
+	cout << textShape->getName();
+	cout <<" BoundingBox bottomRight coord is: ("<< topRight.getX()<<","<< topRight.getY() << ")." <<endl;
 }
 
 int main() {
