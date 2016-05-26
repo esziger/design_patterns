@@ -21,6 +21,9 @@ public:
 	virtual void BoundingBox(Point& bottomLeft, Point& topRight) const;
 
 	virtual bool isEmpty() const;
+
+	virtual std::string getName();
+
 	//virtual Manipulator* CreateManipulator() const;
 
 };

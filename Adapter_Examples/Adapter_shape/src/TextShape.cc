@@ -33,6 +33,12 @@ TextShape::TextShape(Point bottomLeft, Point topRight)
 TextShape::~TextShape()
 {}
 
+std::string
+TextShape::getName()
+{
+	return "Text";
+}
+
 /*Manipulator* TextShape::CreateManipulator () const
 {
 	return new TextManipulator(this);
