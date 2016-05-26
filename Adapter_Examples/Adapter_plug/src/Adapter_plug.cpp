@@ -35,13 +35,13 @@ void EUPlug::PlugInWithTwoRoundPin()
 
 ////////////////////////////
 
-class BritishPlug
+class BritishWallOutlet
 {
 public:
 	void PlugInWithThreeFlatPin();
 };
 
-void BritishPlug::PlugInWithThreeFlatPin()
+void BritishWallOutlet::PlugInWithThreeFlatPin()
 {
 	cout << "Object plugged-in with three flat pin into the British plug.";
 }
@@ -52,29 +52,29 @@ void BritishPlug::PlugInWithThreeFlatPin()
 class EUtoBritishAdapter : public AbstractPlug
 {
 private:
-	BritishPlug* britishPlug;
+	BritishWallOutlet* britishWallOutlet;
 
 public:
-	EUtoBritishAdapter(BritishPlug * switchBoard);
+	EUtoBritishAdapter(BritishWallOutlet * switchBoard);
 	~EUtoBritishAdapter(){}
 	virtual void PlugInWithTwoRoundPin();
 };
 
-EUtoBritishAdapter::EUtoBritishAdapter(BritishPlug * pPlug)
+EUtoBritishAdapter::EUtoBritishAdapter(BritishWallOutlet * pWallOutlet)
 {
-	britishPlug = pPlug;
+	britishWallOutlet = pWallOutlet;
 }
 
 void EUtoBritishAdapter::PlugInWithTwoRoundPin()
 {
-	britishPlug->PlugInWithThreeFlatPin();
+	britishWallOutlet->PlugInWithThreeFlatPin();
 }
 
 
 int main() {
 
-	BritishPlug* britishPlug = new BritishPlug();
-	AbstractPlug* laptopPlug = new EUtoBritishAdapter(britishPlug);
+	BritishWallOutlet* britishWallOutlet = new BritishWallOutlet();
+	AbstractPlug* laptopPlug = new EUtoBritishAdapter(britishWallOutlet);
 	laptopPlug->PlugInWithTwoRoundPin();
 
 	return 0;
