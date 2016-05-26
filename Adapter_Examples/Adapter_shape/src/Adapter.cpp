@@ -7,57 +7,27 @@
 //============================================================================
 
 #include <iostream>
-#include <Point.hh>
-#include <Shape.hh>
+
+#include "Point.hh"
+#include "Shape.hh"
+#include "TextView.hh"
+#include "TextShape.hh"
 
 using namespace std;
 
-class TextView
-{
-public:
-	TextView();
-	virtual ~TextView();
-	void GetOrigin(Coord& x, Coord& y);
-	void GetExtent(Coord& width, Coord& height) const;
-	virtual bool isEmpty() const;
-};
-
-class TextShape : public Shape, private TextView
-{
-public:
-	TextShape();
-
-	virtual void BoundingBox(Point& bottomLeft, Point& topRight) const;
-
-	virtual bool isEmpty() const;
-	//virtual Manipulator* CreateManipulator() const;
-
-};
-
-void TextShape::BoundingBox(Point& bottomLeft, Point& topRight) const
-{
-	Coord bottom, left, width, height;
-
-	GetOrigin(bottom, left);
-	GetExtent(width, height);
-
-	bottomLeft = Point(bottom, left);
-	topRight = Point(bottom + height, left + width);
-
-}
-
-bool TextShape::isEmpty() const
-{
-	return TextView::isEmpty();
-}
-
-/*Manipulator* TextShape::CreateManipulator () const
-{
-	return new TextManipulator(this);
-}*/
-
 
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
+
+	Shape* textShape = new TextShape(Point(0,0),Point(10,10));
+
+	Point bottomLeft;
+	Point topRight;
+
+	textShape->BoundingBox(bottomLeft,topRight);
+
+	cout<< "TextShape BoundingBox bottomLeft coord is: ("<< bottomLeft.getX()<<","<< bottomLeft.getY() << ")." <<endl;
+	cout<< "TextShape BoundingBox bottomRight coord is: ("<< topRight.getX()<<","<< topRight.getY() << ")." <<endl;
+
 	return 0;
 }

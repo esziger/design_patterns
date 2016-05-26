@@ -1,5 +1,4 @@
-#include <Point.hh>
-
+#include "Point.hh"
 
 Point::Point(Coord p_x, Coord p_y)
 {
@@ -7,12 +6,26 @@ Point::Point(Coord p_x, Coord p_y)
 	y = p_y;
 }
 
-Coord Point::X() const
+Coord
+Point::getX() const
 {
 	return x;
 }
 
-Coord Point::Y() const
+void
+Point::setX(Coord X)
+{
+	x = X;
+}
+
+Coord
+Point::getY() const
 {
 	return y;
+}
+
+void
+Point::setY(Coord Y)
+{
+	y = Y;
 }
